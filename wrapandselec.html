@@ -18,11 +18,11 @@
 
 	<script>
 	var str = "Bonjour, je m'appelle Francis et je suis le plus bel homme du monde";
-	var wordsbegone = ["et", "bel", "homme"];
+	var wordsbegone = ["et", "bel", "homme", "Bonjour"];
 	
 	
 	
-var regex = /\S+/g;
+	var regex = /\S+[^,;. ]/g;
 
 var id = 0;
 

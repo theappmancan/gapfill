@@ -1,3 +1,8 @@
 https://stackoverflow.com/questions/9384444/javascript-how-can-i-wrap-every-word-in-a-string-with-a-span-tag-containing-a-u
 
 https://stackoverflow.com/questions/7070054/javascript-shuffle-html-list-element-order
+
+
+ git init
+ git add .
+git commit -m "First commit"
