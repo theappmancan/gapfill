@@ -5,7 +5,7 @@
 	<title>Document</title>
 </head>
 <body>
-
+<div id="activityFour">
 <p id="mainsection"></p>
 
 <datalist id="optionwords">
@@ -15,40 +15,41 @@
     <option value="Opera">
    <option value="Safari">-->
   </datalist>
+</div> 
 
 	<script>
-	var str = "Bonjour, je m'appelle Francis et je suis le plus bel homme du monde";
-	var wordsbegone = ["et", "bel", "homme", "Bonjour"];
+	var activityFourstr = "Bonjour, je m'appelle Francis et je suis le plus bel homme du monde. I live here";
+	var activityFourwordsbegone = ["et", "bel", "homme", "Bonjour", "here"];
 	
 	
 	
-	var regex = /\S+[^,;. ]/g;
+	var activityFourregex = /\S+[^,;. ]/g;
 
-var id = 0;
+var activityFourid = 0;
 
-var result = str.replace(regex, function(a) {
+var activityFourresult = activityFourstr.replace(activityFourregex, function(a) {
     return "<span id=" + a + ">" + a + "</span>";
 });
 
-alert(result);
-	document.getElementById("mainsection").insertAdjacentHTML("afterbegin", result);
+
+document.getElementById("activityFour").querySelector("#mainsection").insertAdjacentHTML("afterbegin", activityFourresult);
 	
 	
-	alert(document.getElementById("mainsection").children[0].id);
-	alert(document.getElementById("mainsection").children.length);
+	//alert(document.getElementById("mainsection").children[0].id);
+	//alert(document.getElementById("mainsection").children.length);
 	
-	var spanchild = document.getElementById("mainsection").children;
+	var activityFourspanchild = document.getElementById("activityFour").querySelector("#mainsection").children;
 	
 	
-	for(var i= 0; i < document.getElementById("mainsection").children.length; i++){
-		for (var j= 0; j < wordsbegone.length; j++){
-		if(document.getElementById("mainsection").children[i].innerHTML == wordsbegone[j]){
+	for(var i= 0; i < document.getElementById("activityFour").querySelector("#mainsection").children.length; i++){
+		for (var j= 0; j < activityFourwordsbegone.length; j++){
+		if(document.getElementById("activityFour").querySelector("#mainsection").children[i].innerHTML == activityFourwordsbegone[j]){
 		
 		
-	var options = "<option value=" + document.getElementById("mainsection").children[i].innerHTML + ">"
-	document.getElementById("optionwords").insertAdjacentHTML("afterbegin", options);
-	document.getElementById("mainsection").children[i].innerHTML = "";
-	document.getElementById("mainsection").children[i].insertAdjacentHTML("afterbegin", "<input class=datalistinput id=mySelect list=optionwords name=browser onchange=getData(this);>");
+	var activityFouroptions = "<option value=" + document.getElementById("activityFour").querySelector("#mainsection").children[i].innerHTML + ">"
+	document.getElementById("activityFour").querySelector("#optionwords").insertAdjacentHTML("afterbegin", activityFouroptions);
+	document.getElementById("activityFour").querySelector("#mainsection").children[i].innerHTML = "";
+	document.getElementById("activityFour").querySelector("#mainsection").children[i].insertAdjacentHTML("afterbegin", "<input class=datalistinput id=mySelect list=optionwords name=browser onchange=getData(this);>");
 		
 		
 			
@@ -66,13 +67,14 @@ alert(result);
 
 var value = elem.value;
 
-alert(value);
+//alert(value);
 
-alert("I am the span id after the datatlist inputt has had it's value chose " + elem.closest("span").id);
+//alert("I am the span id after the datatlist inputt has had it's value chose " + elem.closest("span").id);
 
 
 if(value === elem.closest("span").id){
 	
+	elem.closest("span").setAttribute("draggable", "true");
 	elem.closest("span").style.fontSize = "25px";
 	elem.closest("span").innerHTML = elem.closest("span").id;
 	elem.remove();
